@@ -10,26 +10,25 @@
     
     <a href="{% url 'news:newStory' %}">Write New Story</a>
     
-    <h2>Latest News</h2>
+    <h2>News</h2>
 
-    <div id="latest-stories">
-        {% if latest_stories %}
-            {% for story in latest_stories %}
-                {% include './storyCard.html' with story=story position=forloop.counter %}
-            {% endfor %}
-        {% else %}
-            <p>No stories are available.</p>
-        {% endif %}
-    </div>
+    <form>
+        <label for="sort">Order by:</label>
+        <select id="sort" name="sort">
+        <option value="LatestFirst">>Latest First</option>
+        <option value="OldestFirst">>Oldest First</option> 
+    </select>
+    <button type="submit"> Go</button>
+    </form>
 
     <div id="all-stories">
-        {% if latest_stories %}
+        {% if all_stories %}
             {% for story in all_stories %}
-               {% include './storyCard.html' with story=story %}
+               {% include './storyCard.html' with story=story%}
             {% endfor %}
         {% else %}
             <p>No stories are available.</p>
         {% endif %}
     </div>
 
-    {% endblock %}
+    {% endblock %} 

@@ -6,21 +6,30 @@ from .forms import StoryForm
 
 class IndexView(generic.ListView):
     template_name = 'news/index.html'
+    context_object_name = 'all_stories'
 
     def get_queryset(self):
         '''Return all news stories.'''
-        return NewsStory.objects.all()
+        qs = NewsStory.objects.all()
+        sort = self.request.GET.get("sort")
+        print (f"{sort=}")
+        if sort == "LatestFirst":
+            qs = qs.order_by('-pub_date')
+        else:
+            qs = qs.order_by('pub_date')
+        return qs
+        
+        
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['latest_stories'] = NewsStory.objects.all()[:4]
-        context['all_stories'] = NewsStory.objects.all()
         return context
 
 class StoryView(generic.DetailView):
     model = NewsStory
     template_name = 'news/story.html'
     context_object_name = 'story'
+ 
 
 class AddStoryView(generic.CreateView):
     form_class = StoryForm
@@ -31,3 +40,5 @@ class AddStoryView(generic.CreateView):
     def form_valid(self, form):
         form.instance.author = self.request.user
         return super().form_valid(form)
+
+

@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2> Welcome back {{ user.username }}! </h2>
+
+
+
+<p>View stories by {{ user.username }}</p>
+
+{% for story in user.newsstory_set.all %}
+    {% include 'news/storyCard.html' with story=story %}
+{% endfor %}
+
+
+{% endblock content %}
