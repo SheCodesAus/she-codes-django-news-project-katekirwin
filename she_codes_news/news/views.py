@@ -13,10 +13,10 @@ class IndexView(generic.ListView):
         qs = NewsStory.objects.all()
         sort = self.request.GET.get("sort")
         print (f"{sort=}")
-        if sort == "LatestFirst":
-            qs = qs.order_by('-pub_date')
-        else:
+        if sort == "OldestFirst":
             qs = qs.order_by('pub_date')
+        else:
+            qs = qs.order_by('-pub_date')
         return qs
         
         

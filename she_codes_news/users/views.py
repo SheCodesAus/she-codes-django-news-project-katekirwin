@@ -7,7 +7,6 @@ from django.views import generic
 from .models import CustomUser
 from .forms import CustomUserCreationForm
 
-
 class CreateAccountView(CreateView):
     form_class = CustomUserCreationForm
     success_url = reverse_lazy("login")
@@ -16,5 +15,11 @@ class CreateAccountView(CreateView):
 
 class UserProfileView(generic.DetailView):
     model = CustomUser
-    context_object_name = 'user'
-    template_name = 'users/customuser_detail.html'
+    template_name = 'users/myprofile.html'
+
+    def get_object(self, queryset = None):
+
+        return self.request.user
+
+class AuthorView(generic.DetailView):
+    model = CustomUser

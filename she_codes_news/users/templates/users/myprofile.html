@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2> Welcome back {{ customuser.username }}! </h2>
+
+<a href="{% url 'news:newStory' %}">Write New Story</a>
+
+<a href="{% url 'users:profile' customuser.id %}"> View your stories </a>
+    
+{% endblock content %}

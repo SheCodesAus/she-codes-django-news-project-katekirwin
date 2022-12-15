@@ -5,11 +5,11 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>She Codes News</title>
-        <!-- <link rel="icon" type="image/x-icon" href="..static/news/images/favicon.ico"> -->
+        <title>The Daily Hoop</title>
+        <link rel="icon" type="image/x-icon" href=" {% static 'news/images/favicon.ico' %}">
         <meta name="description" content="">
         <meta name="author" content="Kate Kirwin">
-        <link href="https://fonts.googleapis.com/css?family=Manjari&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@500&display=swap" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
         {% block stylesheets %} {% endblock %}
     </head>
@@ -18,7 +18,8 @@
         <header>
             <div id="header-text">
                 <a id="header-link" href="{% url 'news:index' %}">
-                    <h1>She {Codes} News</h1>
+                    <h1>The Daily Hoop</h1>
+                    <h2>Your one stop shop for all news and events about hula hooping!</h2>
                 </a>
             </div>
             <!-- include nav here -->
