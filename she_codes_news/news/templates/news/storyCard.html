@@ -4,8 +4,8 @@
       
         <div class="story-card-text">
             <h3>{{ story.title }}</h3>
-            <a href="{% url 'users:profile' story.author.id%}">{{ story.author }}</a></h4>
-            <h4>{{ story.pub_date }}</h4>
+            <h4>By: <a href="{% url 'users:profile' story.author.id%}">{{ story.author }}</a></h4>
+            <h4>Published on: {{ story.pub_date|date:'d M y' }}</h4>
         </div>
     </a>
 </div>

@@ -4,8 +4,16 @@
 
 <h2> Welcome back {{ customuser.username }}! </h2>
 
-<a href="{% url 'news:newStory' %}">Write New Story</a>
+<div id="buttondiv">
 
-<a href="{% url 'users:profile' customuser.id %}"> View your stories </a>
-    
+<form  action="{% url 'news:newStory' %}">
+    <input id="buttons" type="submit" value="Write New Story" />
+</form>
+
+<form action="{% url 'users:profile' customuser.id %}">
+    <input id="buttons" type="submit" value="View your stories" />
+</form>
+
+</div>
+   
 {% endblock content %}

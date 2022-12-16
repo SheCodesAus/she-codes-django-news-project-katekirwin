@@ -2,10 +2,12 @@
 
 {% block content %}
 
+<div id="pageheading">
     All stories by {{ customuser.username }}
+</div>
     <ul>
     {% for story in customuser.newsstory_set.all %}
-        <li> <a href = "{% url 'news:story' story.id %}"> {{ story.title }} </a> </li>
+        <li> <a id="storylist" href  = "{% url 'news:story' story.id %}"> {{ story.title }} </a> </li>
     {% endfor %}
     </ul>
 

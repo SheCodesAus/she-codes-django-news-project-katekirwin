@@ -9,6 +9,8 @@ header {
     align-items: center;
     justify-content: space-between;
     border-bottom: 1px solid #000;
+    background-color: #fcd9eb;
+    text-decoration: none;
 }
 
 h1 {
@@ -20,10 +22,17 @@ h1 {
 
 h2 {
    font-family: 'M PLUS Rounded 1c', sans-serif; 
+   font-size: 3rem;
 }
 
 h3 {
+    font-family: 'M PLUS Rounded 1c', sans-serif;
     font-size: 2rem;
+    margin: 0;
+}
+
+h4 {
+    font-size: 1rem;
     margin: 0;
 }
 
@@ -40,7 +49,6 @@ nav {
 }
 
 a {
-    margin: 2px;
     text-decoration: none;
     color: #000;
 }
@@ -75,4 +83,65 @@ a, p, h4, label, button {
 
   .hero-text h1 {
     font-size: 3rem;
+  }
+
+  #logo {
+    height: 5vh;
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+  }
+
+  #home {
+    text-align: center;
+  }
+
+  #storylist {
+    color: blue;
+    padding: 1em;
+    text-decoration: underline;
+  }
+
+
+  #pageheading {
+    margin: 3em, 0, 0, 0 ;
+    padding: 1em;
+    font-size: 2rem;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    text-align: center;
+  }
+
+  #buttons {
+    padding: 20px;
+    background-color: #fcd9eb;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    border-radius: 25%;
+    border: none;
+  }
+
+  .button:hover {
+    background-color: #4CAF50; /* Green */
+    color: white;
+  }
+
+  #buttondiv {
+    flex-basis: 20%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin: 1em;
+    padding: 1em
+  }
+
+  #createstory {
+    margin: 3em;
+    background-color: #fcd9eb;
+    padding:10px;
+    text-align: left;
+  }
+
+  input, textarea {
+    border-radius:10px;
+    box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
   }
