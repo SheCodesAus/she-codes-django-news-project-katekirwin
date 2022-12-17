@@ -118,6 +118,7 @@ a, p, h4, label, button {
     font-family: 'M PLUS Rounded 1c', sans-serif;
     border-radius: 25%;
     border: none;
+    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.6);
   }
 
   .button:hover {
@@ -134,14 +135,46 @@ a, p, h4, label, button {
     padding: 1em
   }
 
-  #createstory {
+.formbox {
     margin: 3em;
     background-color: #fcd9eb;
-    padding:10px;
     text-align: left;
+    position: relative;
+    min-height: 60%;
+    width: 50%;
+    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.6);
+    padding: 0px 0px 5px 15px;
+    box-sizing: border-box;
+    border-radius: 8px;
   }
 
   input, textarea {
     border-radius:10px;
     box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
+  }
+
+  .styledform {
+    display: block;
+    margin: 5px 5px 15px 20px;
+    padding: 4px;
+    width: 80%;
+    box-sizing: border-box;
+  }
+
+  #form-submit {
+    background-color: black;
+    color: white;
+    padding: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+  }
+
+  footer {
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
   }

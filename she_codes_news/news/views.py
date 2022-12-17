@@ -1,7 +1,8 @@
 from django.views import generic
 from django.urls import reverse_lazy
+from django.shortcuts import get_object_or_404
 from .models import NewsStory
-from .forms import StoryForm
+from .forms import StoryForm, CommentForm
 
 
 class IndexView(generic.ListView):
@@ -41,4 +42,18 @@ class AddStoryView(generic.CreateView):
         form.instance.author = self.request.user
         return super().form_valid(form)
 
+class AddCommentView(generic.CreateView):
+    form_class = CommentForm
+    template_name = "news/createComment.html"
+    success_url = reverse_lazy("news:newsStory")
 
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        pk = self.kwargs.get("pk")
+        story = get_object_or_404(NewsStory, pk=pk)
+        form.instance.story = story
+        return super().form_valid(form)
+
+    def get_success_url(self) -> str:
+        pk = self.kwargs.get("pk")
+        return reverse_lazy("news:story", kwargs={"pk":pk})

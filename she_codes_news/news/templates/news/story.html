@@ -17,4 +17,15 @@
     </div>
 </div>
 
+<div id="'comment-wrapper">
+<p><a href="{% url 'news:addComment' story.id %}"> Add a Comment</a></p>
+
+    <ul>
+   {% for comment in story.comments.all %}
+        <li> {{comment.author.username}} ({{comment.created_at}}): {{ comment.content }} </li>
+   {% endfor %}
+   
+    </ul>   
+</div>
+
 {% endblock %}

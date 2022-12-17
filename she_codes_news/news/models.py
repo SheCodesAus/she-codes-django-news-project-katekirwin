@@ -12,3 +12,13 @@ class NewsStory(models.Model):
     pub_date = models.DateTimeField()
     content = models.TextField()
     image = models.CharField(max_length=500, null=True, blank=True)
+
+class Comment(models.Model):
+    story = models.ForeignKey(NewsStory, related_name="comments", on_delete=models.CASCADE) 
+    author = models.ForeignKey(
+        USER, related_name="comments", on_delete=models.CASCADE
+    )
+    content = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    
