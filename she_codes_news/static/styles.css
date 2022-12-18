@@ -2,6 +2,9 @@
 
 body {
     background-color: rgb(240, 239, 239);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; 
 }
 
 header {
@@ -161,7 +164,7 @@ a, p, h4, label, button {
     box-sizing: border-box;
   }
 
-  #form-submit {
+  #form-submit, {
     background-color: black;
     color: white;
     padding: 10px;
@@ -171,10 +174,15 @@ a, p, h4, label, button {
     margin-bottom: 20px;
   }
 
+  #comment-wrapper {
+    padding: 10px;
+  }
+
   footer {
     background-color: black;
     color: white;
     text-align: center;
     padding: 20px;
     font-family: 'M PLUS Rounded 1c', sans-serif;
+    margin-top: auto;
   }

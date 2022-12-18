@@ -4,6 +4,12 @@
 
 <h2 id="pageheading"> Welcome back {{ customuser.username }}! </h2>
 
+<p>Your details:</p>
+
+<p>Your username: {{ customuser.username }}</p>
+<p>Your email: {{ customuser.email}}</p>
+<p>Number of stories published: {{ customuser.newsstory_set.count }}</p>
+
 <div id="buttondiv">
     
 
