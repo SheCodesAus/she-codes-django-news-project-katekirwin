@@ -1,21 +1,41 @@
-    <h2>Latest News</h2>
+    {% extends "base.html" %}
+    {% load static %}
 
-    <div id="latest-stories">
-        {% if latest_stories %}
-            {% for story in latest_stories %}
-                <p>{{ story.title }}</p>
-            {% endfor %}
-        {% else %}
-            <p>No stories are available.</p>
-        {% endif %}
-    </div>
+    {% block stylesheets %}
+    <link rel="stylesheet" type="text/css" href="{% static 'news/styles.css' %}">
+    {% endblock %}
+
+
+    {% block content %}
+
+    <div class="hero-image">
+        <div class="hero-text">
+          <h1>Your one stop shop for all the news about the hoop community!</h1>
+        </div>
+    </div> 
+
+</div>
+
+    
+    <h2 id="home">News</h2>
+
+    <form>
+        <label for="sort">Order by:</label>
+        <select id="sort" name="sort">
+        <option value="LatestFirst">>Latest First</option>
+        <option value="OldestFirst">>Oldest First</option> 
+    </select>
+    <button type="submit"> Go</button>
+    </form>
 
     <div id="all-stories">
-        {% if latest_stories %}
+        {% if all_stories %}
             {% for story in all_stories %}
-                <p>{{ story.title }}</p>
+               {% include './storyCard.html' with story=story%}
             {% endfor %}
         {% else %}
             <p>No stories are available.</p>
         {% endif %}
     </div>
+
+    {% endblock %} 

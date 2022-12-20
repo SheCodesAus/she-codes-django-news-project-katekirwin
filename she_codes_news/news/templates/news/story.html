@@ -1,8 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block stylesheets %}
+<link rel='stylesheet' type='text/css' href="{% static 'news/styles.css' %}">
+{% endblock %} 
+
+{% block content %}
+
 <div id="story-wrapper">
     <h2>{{ story.title }}</h2>
-    <h4>{{ story.author }}</h4>
     <div id="story-content">
-        <img src="{% static '/news/images/placeholder-5.jpg' %}">
+        <img src="{{ story.image }}">
+        <p>Written by:<a href="{% url 'users:profile' story.author.id%}">
+            {{ story.author }} </a> on {{ story.pub_date|date:'d M y' }} </p>
         {{ story.content|linebreaks }}
     </div>
 </div>
+
+<div id="comment-wrapper">
+
+Comments:
+    <ul>
+   {% for comment in story.comments.all %}
+        <li> {{comment.author.username}} ({{comment.created_at}}): {{ comment.content }} </li>
+   {% endfor %}
+   
+    </ul>
+    
+    <form  action="{% url 'news:addComment' story.id %}">
+        <input id="buttons" type="submit" value="Add a Comment" />
+    </form>
+</div>
+
+{% endblock %}
